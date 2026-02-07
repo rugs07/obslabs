@@ -2,11 +2,6 @@
 
 A stunning, immersive 3D web experience built with Next.js and React Three Fiber. ObsidianLabs features an explorable virtual vault with first-person controls, interactive environments, and cutting-edge visual effects.
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1-black?logo=next.js)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
-![Three.js](https://img.shields.io/badge/Three.js-0.182-black?logo=three.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
-
 ## ✨ Features
 
 - **🎮 First-Person Exploration** - Navigate through the 3D environment with smooth WASD + mouse controls
