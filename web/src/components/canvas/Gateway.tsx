@@ -67,12 +67,12 @@ export default function Gateway() {
             {/* Outer particle sphere */}
             <points ref={meshRef}>
                 <bufferGeometry>
-                    <bufferAttribute
+                    {/* <bufferAttribute
                         attach="attributes-position"
                         count={particles.positions.length / 3}
                         array={particles.positions}
                         itemSize={3}
-                    />
+                    /> */}
                 </bufferGeometry>
                 <pointsMaterial
                     size={0.04}
