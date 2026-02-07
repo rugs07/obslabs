@@ -75,7 +75,7 @@ export default function Overlay() {
                 }}
             >
                 {/* Main Title */}
-                <div style={{ marginBottom: '4rem', position: 'relative', zIndex: 10 }}>
+                <div style={{ marginBottom: '4rem',marginTop: '8rem', position: 'relative', zIndex: 10 }}>
                     <AnimatedText
                         text="Architecture"
                         as="h1"
