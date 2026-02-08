@@ -4,7 +4,7 @@ import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 
 export default function DataCenter({ position }: { position: [number, number, number] }) {
-    const groupRef = useRef<any>(null);
+    const groupRef = useRef<THREE.Group>(null);
     const towersRef = useRef<THREE.Mesh[]>([]);
 
     useFrame((state) => {

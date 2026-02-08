@@ -2,8 +2,10 @@ import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 
+import * as THREE from 'three';
+
 export default function TechLab({ position }: { position: [number, number, number] }) {
-    const groupRef = useRef<any>(null);
+    const groupRef = useRef<THREE.Group>(null);
 
     useFrame((state) => {
         if (groupRef.current) {

@@ -17,7 +17,7 @@ import InfoPanel from './InfoPanel';
 import ExplorerControls from './ExplorerControls';
 
 export default function VaultScene() {
-    const [isZoomed, setIsZoomed] = useState(false);
+    const [, setIsZoomed] = useState(false);
 
     return (
         <>

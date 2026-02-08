@@ -11,7 +11,7 @@ interface InfoPanelProps {
 }
 
 export default function InfoPanel({ position, title, description, color = '#00e5cc' }: InfoPanelProps) {
-    const [isOpen, setIsOpen] = useState(false);
+
     const groupRef = useRef<THREE.Group>(null);
     const [opacity, setOpacity] = useState(0);
 

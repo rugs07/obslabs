@@ -3,8 +3,15 @@ import { useThree, useFrame } from '@react-three/fiber';
 import { PointerLockControls } from '@react-three/drei';
 import { Vector3 } from 'three';
 
+interface Controls {
+    moveRight: (val: number) => void;
+    moveForward: (val: number) => void;
+    isLocked: boolean;
+}
+
 export default function ExplorerControls() {
     const { camera } = useThree();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const controlsRef = useRef<any>(null);
     const moveForward = useRef(false);
     const moveBackward = useRef(false);
@@ -65,7 +72,7 @@ export default function ExplorerControls() {
         };
     }, []);
 
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         if (controlsRef.current?.isLocked) {
             velocity.current.x -= velocity.current.x * 10.0 * delta;
             velocity.current.z -= velocity.current.z * 10.0 * delta;

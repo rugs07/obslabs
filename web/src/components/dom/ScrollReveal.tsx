@@ -56,16 +56,13 @@ export default function ScrollReveal({
     return (
         <div
             ref={ref}
-            className={className}
+            className={`transition-all ${className}`}
             style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'none' : getInitialTransform(),
                 filter: isVisible ? 'blur(0px)' : 'blur(10px)',
-                transition: `
-                    opacity ${duration}s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    transform ${duration}s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    filter ${duration}s ease-out
-                `,
+                transitionDuration: `${duration}s`,
+                transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                 transitionDelay: `${delay}s`,
             }}
         >

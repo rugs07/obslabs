@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Mesh, Vector3 } from 'three';
+import { Vector3, Group } from 'three';
 import { Float, Text } from '@react-three/drei';
 import gsap from 'gsap';
 
@@ -8,9 +8,15 @@ interface ArtPieceProps {
     onZoom: (zoomed: boolean) => void;
 }
 
+interface ArtShapeProps {
+    handleClick: () => void;
+    handleDoubleClick: () => void;
+    position: [number, number, number];
+}
+
 // Different procedural shapes for variety
-function HolographicGrid({ handleClick, handleDoubleClick, position }: any) {
-    const gridRef = useRef<any>(null);
+function HolographicGrid({ handleClick, handleDoubleClick, position }: ArtShapeProps) {
+    const gridRef = useRef<Group>(null);
 
     useFrame((state) => {
         if (gridRef.current) {
@@ -43,10 +49,10 @@ function HolographicGrid({ handleClick, handleDoubleClick, position }: any) {
     );
 }
 
-function DataCrystal({ handleClick, handleDoubleClick, position }: any) {
-    const crystalRef = useRef<any>(null);
+function DataCrystal({ handleClick, handleDoubleClick, position }: ArtShapeProps) {
+    const crystalRef = useRef<Group>(null);
 
-    useFrame((state) => {
+    useFrame(() => {
         if (crystalRef.current) {
             crystalRef.current.rotation.y += 0.005;
         }
@@ -73,10 +79,10 @@ function DataCrystal({ handleClick, handleDoubleClick, position }: any) {
     );
 }
 
-function TorusField({ handleClick, handleDoubleClick, position }: any) {
-    const torusRef = useRef<any>(null);
+function TorusField({ handleClick, handleDoubleClick, position }: ArtShapeProps) {
+    const torusRef = useRef<Group>(null);
 
-    useFrame((state) => {
+    useFrame(() => {
         if (torusRef.current) {
             torusRef.current.rotation.x += 0.002;
             torusRef.current.rotation.y += 0.003;
@@ -132,7 +138,14 @@ export default function ArtPiece({ onZoom }: ArtPieceProps) {
         });
     };
 
-    const products = [
+    interface Product {
+        Component: React.FC<ArtShapeProps>;
+        position: [number, number, number];
+        label: string;
+        desc: string;
+    }
+
+    const products: Product[] = [
         { Component: HolographicGrid, position: [0, 0, -7], label: 'HOLO-LATTICE', desc: 'Grid System' },
         { Component: DataCrystal, position: [-5, 0, -3], label: 'DATA-CORE', desc: 'Crystal Matrix' },
         { Component: TorusField, position: [5, 0, -3], label: 'FIELD-TORUS', desc: 'Quantum Ring' },

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const TOTAL_FRAMES = 40;
@@ -15,8 +15,6 @@ export default function FrameAnimation() {
     const [currentFrame, setCurrentFrame] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const animationRef = useRef<number | null>(null);
-    const lastFrameTime = useRef<number>(0);
 
     // Preload all images for smooth animation
     useEffect(() => {
@@ -35,36 +33,33 @@ export default function FrameAnimation() {
         preloadImages();
     }, []);
 
-    // Animation loop - ALWAYS RUNNING
-    const animate = useCallback((timestamp: number) => {
-        if (!lastFrameTime.current) {
-            lastFrameTime.current = timestamp;
-        }
-
-        const elapsed = timestamp - lastFrameTime.current;
-        const frameInterval = 1000 / FRAME_RATE;
-
-        if (elapsed >= frameInterval) {
-            setCurrentFrame((prev) => (prev + 1) % TOTAL_FRAMES);
-            lastFrameTime.current = timestamp - (elapsed % frameInterval);
-        }
-
-        animationRef.current = requestAnimationFrame(animate);
-    }, []);
-
     // Start animation as soon as images are loaded - ALWAYS PLAY
     useEffect(() => {
-        if (isLoaded) {
-            lastFrameTime.current = 0;
-            animationRef.current = requestAnimationFrame(animate);
-        }
+        if (!isLoaded) return;
+
+        let animationFrameId: number;
+        let lastTime = 0;
+
+        const animate = (timestamp: number) => {
+            if (!lastTime) lastTime = timestamp;
+
+            const elapsed = timestamp - lastTime;
+            const frameInterval = 1000 / FRAME_RATE;
+
+            if (elapsed >= frameInterval) {
+                setCurrentFrame((prev) => (prev + 1) % TOTAL_FRAMES);
+                lastTime = timestamp - (elapsed % frameInterval);
+            }
+
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animationFrameId = requestAnimationFrame(animate);
 
         return () => {
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-            }
+            cancelAnimationFrame(animationFrameId);
         };
-    }, [isLoaded, animate]);
+    }, [isLoaded]);
 
     // Track mouse position on document level for hover detection
     useEffect(() => {
@@ -96,11 +91,7 @@ export default function FrameAnimation() {
                         sizes="100vw"
                         quality={100}
                         priority={index < 5} // Prioritize first few frames
-                        className={`frame-image ${index === currentFrame ? 'visible' : 'hidden'}`}
-                        style={{
-                            objectFit: 'cover',
-                            objectPosition: 'center',
-                        }}
+                        className={`frame-image object-cover object-center ${index === currentFrame ? 'visible' : 'hidden'}`}
                     />
                 ))}
                 {/* Vignette overlay */}

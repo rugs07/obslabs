@@ -2,29 +2,13 @@
 
 import { useRef } from 'react';
 import { Mesh } from 'three';
-import { Shape, ExtrudeGeometry } from 'three';
+import { Shape } from 'three';
 
 export default function OctagonalRoom() {
-    const roomRef = useRef<Mesh>(null);
-
     // Create octagonal shape
     const sides = 8;
     const radius = 8;
     const height = 6;
-
-    // Generate octagon points
-    const shape = new Shape();
-    for (let i = 0; i < sides; i++) {
-        const angle = (i / sides) * Math.PI * 2;
-        const x = Math.cos(angle) * radius;
-        const z = Math.sin(angle) * radius;
-        if (i === 0) {
-            shape.moveTo(x, z);
-        } else {
-            shape.lineTo(x, z);
-        }
-    }
-    shape.closePath();
 
     return (
         <group>

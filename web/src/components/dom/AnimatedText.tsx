@@ -43,24 +43,18 @@ export default function AnimatedText({
     return (
         <Component
             ref={ref as any}
-            className={className}
-            style={{ display: 'block' }}
+            className={`block ${className}`}
         >
             {words.map((word, i) => (
                 <span
                     key={i}
-                    style={{
-                        display: 'inline-block',
-                        overflow: 'hidden',
-                        marginRight: '0.3em',
-                    }}
+                    className="inline-block overflow-hidden mr-[0.3em]"
                 >
                     <span
+                        className={`inline-block transition-all duration-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                            }`}
                         style={{
-                            display: 'inline-block',
-                            transform: isVisible ? 'translateY(0)' : 'translateY(100%)',
-                            opacity: isVisible ? 1 : 0,
-                            transition: `all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)`,
+                            transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                             transitionDelay: `${i * staggerDelay}s`,
                         }}
                     >

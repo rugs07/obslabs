@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Rajdhani, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { ToastProvider } from "@/components/dom/ToastProvider";
+import { ToastProvider } from "@/components/ui/feedback/ToastProvider";
+
+import Cursor from "@/components/ui/cursor/Cursor";
+import SmoothScroll from "@/components/dom/SmoothScroll";
+import NoiseOverlay from '@/components/ui/NoiseOverlay';
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const rajdhani = Rajdhani({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
@@ -24,12 +28,12 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ObsidianLabs — Architecture for the Infinite",
-  description: "Boutique AAA-quality virtual museums for the global art market. Frictionless immersive experiences.",
-  keywords: ["virtual museum", "3D gallery", "digital twin", "immersive art", "WebGL", "VR ready"],
+  title: "ObsidianLabs — Digital Excellence",
+  description: "Premium digital solutions, immersive experiences, and next-generation web applications for visionary enterprises.",
+  keywords: ["digital agency", "web development", "3D experiences", "SaaS", "AI solutions", "enterprise"],
   openGraph: {
-    title: "ObsidianLabs — Architecture for the Infinite",
-    description: "Boutique AAA-quality virtual museums for the global art market.",
+    title: "ObsidianLabs — Digital Excellence",
+    description: "Premium digital solutions for visionary enterprises.",
     type: "website",
   },
 };
@@ -40,11 +44,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${rajdhani.variable} ${mono.variable}`}>
-        <ToastProvider>
-          {children}
-        </ToastProvider>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${mono.variable} scroll-smooth`}>
+      <body className="bg-[#030308] text-white antialiased selection:bg-[#00d4ff] selection:text-black">
+        <NoiseOverlay />
+        <SmoothScroll>
+          <Cursor />
+          <ToastProvider>
+            {children}
+          </ToastProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

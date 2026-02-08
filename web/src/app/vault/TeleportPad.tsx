@@ -13,7 +13,7 @@ interface TeleportPadProps {
 export default function TeleportPad({ position, targetPosition, label, description }: TeleportPadProps) {
     const { camera } = useThree();
     const [active, setActive] = useState(false);
-    const textRef = useRef<any>(null);
+    const textRef = useRef<THREE.Group>(null);
 
     useFrame((state) => {
         const dist = camera.position.distanceTo(new THREE.Vector3(...position));

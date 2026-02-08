@@ -2,9 +2,11 @@ import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text, Float } from '@react-three/drei';
 
+import * as THREE from 'three';
+
 export default function PortalHub({ position }: { position: [number, number, number] }) {
-    const groupRef = useRef<any>(null);
-    const ringRef = useRef<any>(null);
+    const groupRef = useRef<THREE.Group>(null);
+    const ringRef = useRef<THREE.Group>(null);
 
     useFrame((state) => {
         if (ringRef.current) {

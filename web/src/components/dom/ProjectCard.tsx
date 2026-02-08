@@ -36,119 +36,64 @@ export default function ProjectCard({ title, subtitle, index }: ProjectCardProps
         setGlowPosition({ x: 50, y: 50 });
     };
 
+    const isHovered = transform.includes('scale(1.05)');
+
     return (
         <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            className="w-full h-[400px] rounded-xl flex flex-col justify-end p-10 relative overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 cursor-pointer transition-all duration-500 hover:border-white/30 hover:bg-black/60"
             style={{
-                minWidth: '55vw',
-                height: '55vh',
-                scrollSnapAlign: 'center',
-                borderRadius: '12px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '2.5rem',
-                position: 'relative',
-                overflow: 'hidden',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
                 transform,
-                transition: 'transform 0.2s ease-out, box-shadow 0.4s ease',
-                cursor: 'pointer',
-                boxShadow: transform.includes('scale(1.05)')
+                boxShadow: isHovered
                     ? '0 30px 100px rgba(0, 0, 0, 0.9), 0 0 80px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(255, 255, 255, 0.2)'
                     : '0 10px 40px rgba(0, 0, 0, 0.6)',
             }}
         >
             {/* Animated glow effect following cursor */}
             <div
+                className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
                 style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
                     background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)`,
-                    pointerEvents: 'none',
-                    transition: 'opacity 0.3s',
-                    opacity: transform.includes('scale(1.05)') ? 1 : 0,
                 }}
             />
 
             {/* Top accent line */}
             <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '1px',
-                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
-                    opacity: transform.includes('scale(1.05)') ? 1 : 0,
-                    transition: 'opacity 0.3s',
-                }}
+                className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
             />
 
-            {/* Gradient overlay */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(to top, rgba(5, 5, 7, 0.95) 0%, rgba(5, 5, 7, 0.5) 40%, transparent 100%)',
-                    zIndex: 1,
-                    pointerEvents: 'none',
-                }}
-            />
+            {/* Dynamic Background Gradient Mesh */}
+            <div className={`absolute inset-0 opacity-40 transition-opacity duration-500 group-hover:opacity-60 bg-[radial-gradient(circle_at_50%_50%,_var(--tw-gradient-stops))] ${index === 1 ? 'from-purple-900/50 via-black to-black' :
+                index === 2 ? 'from-cyan-900/50 via-black to-black' :
+                    index === 3 ? 'from-pink-900/50 via-black to-black' :
+                        'from-gray-900/50 via-black to-black'
+                }`} />
+
+            {/* Grid Pattern Overlay */}
+            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+
+            {/* Gradient overlay for text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(5,5,8,0.95)] via-[rgba(5,5,8,0.4)] to-transparent z-[1] pointer-events-none" />
 
             {/* Content */}
-            <div style={{ position: 'relative', zIndex: 2 }}>
-                <div
-                    style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 500,
-                        letterSpacing: '0.2em',
-                        color: '#ffffff',
-                        marginBottom: '0.75rem',
-                        textTransform: 'uppercase',
-                    }}
-                >
+            <div className="relative z-[2]">
+                <div className="text-sm font-semibold tracking-[0.15em] text-cyan-200 mb-4 uppercase">
                     Project {String(index).padStart(2, '0')}
                 </div>
-                <h3
-                    style={{
-                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                        fontWeight: 300,
-                        marginBottom: '0.5rem',
-                        fontFamily: 'var(--font-display)',
-                    }}
-                >
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 font-display leading-tight">
                     {title}
                 </h3>
-                <p style={{ color: '#8a8a9a', fontSize: '1rem' }}>{subtitle}</p>
+                <p className="text-lg text-gray-200 font-light leading-[1.6]">{subtitle}</p>
 
                 {/* View button */}
                 <div
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        marginTop: '1.5rem',
-                        fontSize: '0.85rem',
-                        fontWeight: 500,
-                        letterSpacing: '0.1em',
-                        color: 'white',
-                        opacity: transform.includes('scale(1.05)') ? 1 : 0.7,
-                        transition: 'opacity 0.3s, transform 0.3s',
-                        transform: transform.includes('scale(1.05)') ? 'translateX(8px)' : 'none',
-                    }}
+                    className={`inline-flex items-center gap-3 mt-8 text-base font-bold tracking-wide text-white transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-2' : 'opacity-70 translate-x-0'
+                        }`}
                 >
                     VIEW EXPERIENCE
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </div>

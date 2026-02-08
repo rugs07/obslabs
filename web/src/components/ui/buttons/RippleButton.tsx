@@ -44,29 +44,19 @@ export default function RippleButton({ children, onClick, className = '', style 
     return (
         <div
             onClick={handleClick}
-            className={className}
-            style={{
-                position: 'relative',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                ...style,
-            }}
+            className={`relative overflow-hidden cursor-pointer ${className}`}
+            style={style}
         >
             {children}
             {ripples.map((ripple) => (
                 <span
                     key={ripple.key}
+                    className="absolute rounded-full bg-white/30 scale-0 animate-[ripple_0.6s_ease-out] pointer-events-none"
                     style={{
-                        position: 'absolute',
                         left: ripple.x,
                         top: ripple.y,
                         width: ripple.size,
                         height: ripple.size,
-                        borderRadius: '50%',
-                        background: 'rgba(255, 255, 255, 0.3)',
-                        transform: 'scale(0)',
-                        animation: 'ripple 0.6s ease-out',
-                        pointerEvents: 'none',
                     }}
                 />
             ))}
