@@ -17,7 +17,7 @@ export default function Scene({ children, ...props }: SceneProps) {
             camera={{ position: [0, 0, 15], fov: 45 }}
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
             gl={{ alpha: true, antialias: false, stencil: false, depth: false }}
-            dpr={[1, 1.5]} // Limit pixel ratio for performance
+            dpr={[1, 1]} // Strict 1:1 pixel ratio for max performance
             onCreated={(state) => (state.gl.toneMappingExposure = 1.2)}
         >
             <Suspense fallback={null}>
@@ -25,7 +25,7 @@ export default function Scene({ children, ...props }: SceneProps) {
                 <color attach="background" args={['#08080a']} />
                 <fog attach="fog" args={['#08080a', 10, 25]} />
 
-                {/* Lighting: High Contrast Noir */}
+                {/* Lighting: High Contrast Noir - No Shadows */}
                 <ambientLight intensity={0.2} />
 
                 {/* Main Rim Light (Moon/Streetlight feel) */}
@@ -34,7 +34,7 @@ export default function Scene({ children, ...props }: SceneProps) {
                     angle={0.5}
                     penumbra={1}
                     intensity={5}
-                    castShadow
+                    // castShadow // Disabled
                     color="#ffffff"
                 />
 
@@ -49,15 +49,15 @@ export default function Scene({ children, ...props }: SceneProps) {
 
                 {children}
 
-                {/* Visual Effects - Noir Style */}
-                <EffectComposer enableNormalPass={false}>
+                {/* Visual Effects - Disabled for Universal Performance */}
+                {/* <EffectComposer enableNormalPass={false}>
                     <Bloom
-                        luminanceThreshold={0.8} // Only very bright things glow
+                        luminanceThreshold={0.8}
                         mipmapBlur
                         intensity={0.8}
                         radius={0.3}
                     />
-                </EffectComposer>
+                </EffectComposer> */}
 
                 <Preload all />
             </Suspense>

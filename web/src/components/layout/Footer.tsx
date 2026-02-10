@@ -115,10 +115,7 @@ export default function Footer() {
                                 <span className="text-xs text-white/30 uppercase tracking-widest">Email</span>
                                 <p className="text-white/60 mt-2 text-lg">hello@obsidianlabs.io</p>
                             </div>
-                            <div>
-                                <span className="text-xs text-white/30 uppercase tracking-widest">Location</span>
-                                <p className="text-white/60 mt-2 text-lg">San Francisco, CA</p>
-                            </div>
+
                         </div>
 
                         {/* Social */}

@@ -64,7 +64,7 @@ function Shard({ position, rotation, scale, index }: any) {
 
 function Particles() {
     const particlesRef = useRef<THREE.Points>(null);
-    const count = 300;
+    const count = 100; // Reduced from 300 for performance
 
     const positions = useMemo(() => {
         const pos = new Float32Array(count * 3);
@@ -104,7 +104,7 @@ function Particles() {
 }
 
 export default function Shards() {
-    const count = 45;
+    const count = 20; // Reduced from 45 for performance
 
     const shards = useMemo(() => {
         return new Array(count).fill(0).map((_, i) => {

@@ -61,9 +61,9 @@ export default function HeroSection() {
                         <ScrollReveal delay={0.3}>
                             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                                 <MagneticButton strength={40}>
-                                    <ShardButton href="/vault" variant="primary" size="lg">
+                                    <ShardButton href="/contact" variant="primary" size="lg">
                                         <span className="relative z-10 flex items-center gap-3 px-4">
-                                            <span className="tracking-[0.1em]">ENTER THE VAULT</span>
+                                            <span className="tracking-[0.1em]">CONTACT US</span>
                                             <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                         </span>
                                     </ShardButton>

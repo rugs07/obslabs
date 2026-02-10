@@ -55,20 +55,7 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-6 md:gap-8 group">
-                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-[#00d4ff]/30 group-hover:bg-[#00d4ff]/10 transition-all duration-500">
-                                            <svg className="w-6 h-6 md:w-8 md:h-8 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <span className="text-xs text-white/30 uppercase tracking-widest block mb-1 md:mb-2">Visit Us</span>
-                                            <p className="text-white text-xl md:text-2xl font-light">
-                                                San Francisco, CA
-                                            </p>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </ScrollReveal>

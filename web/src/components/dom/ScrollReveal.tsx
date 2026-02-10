@@ -60,7 +60,7 @@ export default function ScrollReveal({
             style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'none' : getInitialTransform(),
-                filter: isVisible ? 'blur(0px)' : 'blur(10px)',
+                // filter: isVisible ? 'blur(0px)' : 'blur(10px)', // Disabled for performance
                 transitionDuration: `${duration}s`,
                 transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                 transitionDelay: `${delay}s`,
