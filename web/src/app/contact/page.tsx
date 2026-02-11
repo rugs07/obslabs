@@ -49,8 +49,8 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <span className="text-xs text-white/30 uppercase tracking-widest block mb-1 md:mb-2">Email Us</span>
-                                            <a href="mailto:hello@obsidianlabs.io" className="text-white text-xl md:text-2xl font-light hover:text-[#00d4ff] transition-colors break-all">
-                                                hello@obsidianlabs.io
+                                            <a href="mailto:labsobsidian6@gmail.com" className="text-white text-xl md:text-2xl font-light hover:text-[#00d4ff] transition-colors break-all">
+                                                labsobsidian6@gmail.com
                                             </a>
                                         </div>
                                     </div>

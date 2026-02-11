@@ -35,7 +35,7 @@ export default function ServicesSection() {
 
                 {/* Section Header */}
                 <ScrollReveal>
-                    <div className="text-center mb-32 relative">
+                    <div className="text-center my-32 relative">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#ff00aa]/20 rounded-full blur-[100px] pointer-events-none" />
                         <span className="text-sm font-medium tracking-[0.2em] text-[#ff00aa] uppercase mb-4 block">Expertise</span>
                         <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">

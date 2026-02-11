@@ -59,7 +59,7 @@ export default function CapabilitiesSection() {
 
                 {/* Section Header */}
                 <ScrollReveal>
-                    <div className="text-center mb-24">
+                    <div className="text-center my-24">
                         <span className="text-sm font-medium tracking-[0.2em] text-[#00d4ff] uppercase mb-4 block">Services</span>
                         <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
                             What We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#00ff88]">Build</span>

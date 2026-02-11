@@ -12,13 +12,13 @@ const process = [
 
 export default function ProcessSection() {
     return (
-        <section className="py-[var(--section-padding-y)] bg-[#030308] relative">
+        <section className="bg-[#030308] relative py-20">
             <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
                 <ScrollReveal>
                     <div className="grid lg:grid-cols-2 gap-24 lg:gap-32 items-start">
                         {/* Left - Title */}
-                        <div className="lg:sticky lg:top-40">
+                        <div className="">
                             <span className="text-sm font-medium tracking-[0.2em] text-[#ffba00] uppercase mb-4 block">Methodology</span>
                             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
                                 How We <br />

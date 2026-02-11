@@ -12,7 +12,7 @@ export default function CTASection() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10">
+            <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10 my-10">
                 <ScrollReveal>
                     <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-widest text-[#00d4ff] uppercase mb-8 backdrop-blur-md">
                         Start Your Journey
