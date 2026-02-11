@@ -7,8 +7,8 @@ import ShardButton from '../ui/buttons/ShardButton';
 import MagneticButton from '../ui/buttons/MagneticButton';
 
 const stats = [
-    { value: '100+', label: 'Projects Delivered', suffix: '' },
-    { value: '50', label: 'Global Clients', suffix: '+' },
+    { value: '1000+', label: 'Downloads on unity Asset Store', suffix: '' },
+    { value: '10', label: 'Global Clients', suffix: '+' },
     { value: '99', label: 'Client Satisfaction', suffix: '%' },
 ];
 
