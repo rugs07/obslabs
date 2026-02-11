@@ -48,7 +48,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 {toasts.map((toast) => (
                     <div
                         key={toast.id}
-                        className={`rounded-lg px-6 py-4 text-white text-sm font-medium border animate-[toast-in_0.3s_ease-out] min-w-[250px] max-w-[400px] ${getToastClasses(toast.type)}`}
+                        className={`rounded-[4px] px-6 py-4 text-white text-sm font-medium border animate-[toast-in_0.3s_ease-out] min-w-[250px] max-w-[400px] ${getToastClasses(toast.type)}`}
                     >
                         {toast.message}
                     </div>

@@ -62,7 +62,7 @@ export default function ContactPage() {
 
                         {/* Right - Form */}
                         <ScrollReveal delay={0.2}>
-                            <div className="p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-sm relative overflow-hidden mt-12 lg:mt-0">
+                            <div className="p-8 md:p-16 rounded-[6px] md:rounded-[12px] bg-white/[0.02] border border-white/5 backdrop-blur-sm relative overflow-hidden mt-12 lg:mt-0">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#00d4ff]/5 rounded-full blur-[80px] pointer-events-none" />
                                 <ContactFormWithToast />
                             </div>

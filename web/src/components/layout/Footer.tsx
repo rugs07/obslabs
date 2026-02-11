@@ -44,7 +44,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-5 space-y-10">
                         <a href="#" className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00d4ff] to-[#00ff88] flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-[6px] bg-gradient-to-br from-[#00d4ff] to-[#00ff88] flex items-center justify-center">
                                 <span className="text-[#030308] font-bold text-xl">O</span>
                             </div>
                             <span className="text-2xl font-bold tracking-tight">
@@ -57,7 +57,7 @@ export default function Footer() {
                         </p>
 
                         {/* Newsletter */}
-                        <div className="max-w-md pt-4">
+                        {/* <div className="max-w-md pt-4">
                             <h4 className="text-sm font-semibold text-white mb-6 uppercase tracking-wider">Stay Updated</h4>
                             <form onSubmit={handleSubscribe} className="relative">
                                 <input
@@ -65,11 +65,11 @@ export default function Footer() {
                                     placeholder="Enter your email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 pr-16 text-white placeholder-white/30 focus:outline-none focus:border-[#00d4ff]/50 transition-colors"
+                                    className="w-full bg-white/5 border border-white/10 rounded-[8px] px-6 py-5 pr-16 text-white placeholder-white/30 focus:outline-none focus:border-[#00d4ff]/50 transition-colors"
                                 />
                                 <button
                                     type="submit"
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-[#00d4ff] flex items-center justify-center hover:bg-[#00d4ff]/90 transition-colors"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-[6px] bg-[#00d4ff] flex items-center justify-center hover:bg-[#00d4ff]/90 transition-colors"
                                 >
                                     {subscribed ? (
                                         <svg className="w-6 h-6 text-[#030308]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -78,7 +78,7 @@ export default function Footer() {
                                     )}
                                 </button>
                             </form>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Links */}

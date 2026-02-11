@@ -43,7 +43,7 @@ export default function ProjectCard({ title, subtitle, index }: ProjectCardProps
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="w-full h-[400px] rounded-xl flex flex-col justify-end p-10 relative overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 cursor-pointer transition-all duration-500 hover:border-white/30 hover:bg-black/60"
+            className="w-full h-[400px] rounded-[6px] flex flex-col justify-end p-10 relative overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 cursor-pointer transition-all duration-500 hover:border-white/30 hover:bg-black/60"
             style={{
                 transform,
                 boxShadow: isHovered

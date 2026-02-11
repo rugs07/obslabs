@@ -49,7 +49,7 @@ export default function ServicesSection() {
                 <div className="grid md:grid-cols-2 gap-8">
                     {services.map((service, i) => (
                         <ScrollReveal key={i} delay={i * 0.1}>
-                            <div className="group h-full p-8 md:p-12 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#00d4ff]/30 transition-all duration-500 cursor-pointer relative overflow-hidden">
+                            <div className="group h-full p-8 md:p-12 rounded-[10px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#00d4ff]/30 transition-all duration-500 cursor-pointer relative overflow-hidden">
                                 {/* Hover Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

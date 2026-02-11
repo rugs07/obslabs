@@ -76,13 +76,13 @@ export default function CapabilitiesSection() {
                         <ScrollReveal key={i} delay={i * 0.1}>
                             <motion.div
                                 whileHover={{ y: -10 }}
-                                className="group h-full p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#00d4ff]/30 transition-all duration-500 cursor-pointer relative overflow-hidden"
+                                className="group h-full p-8 rounded-[10px] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#00d4ff]/30 transition-all duration-500 cursor-pointer relative overflow-hidden"
                             >
                                 {/* Hover Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                 <div className="relative z-10 flex flex-col h-full">
-                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#00d4ff] mb-6 group-hover:scale-110 group-hover:bg-[#00d4ff]/10 group-hover:border-[#00d4ff]/50 transition-all duration-500">
+                                    <div className="w-14 h-14 rounded-[8px] bg-white/5 border border-white/10 flex items-center justify-center text-[#00d4ff] mb-6 group-hover:scale-110 group-hover:bg-[#00d4ff]/10 group-hover:border-[#00d4ff]/50 transition-all duration-500">
                                         {item.icon}
                                     </div>
 

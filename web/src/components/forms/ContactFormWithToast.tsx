@@ -60,7 +60,7 @@ export default function ContactFormWithToast() {
   };
 
   const inputClasses =
-    "w-full px-6 py-4 md:px-8 md:py-5 bg-white/[0.03] border border-white/10 rounded-lg text-white text-base md:text-lg font-light tracking-wide outline-none transition-all duration-300 focus:border-white/40 focus:bg-white/5 placeholder:text-white/20";
+    "w-full px-6 py-4 md:px-8 md:py-5 bg-white/[0.03] border border-white/10 rounded-[4px] text-white text-base md:text-lg font-light tracking-wide outline-none transition-all duration-300 focus:border-white/40 focus:bg-white/5 placeholder:text-white/20";
 
   return (
     <form
